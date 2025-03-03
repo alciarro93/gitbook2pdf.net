@@ -139,7 +139,6 @@ public class GitBookUtils
         /* -------------------- */
 
         // HTML to PDF convertion
-        //TODO find a better (free) plugin
         HtmlToPdf converter = new HtmlToPdf();
         converter.Document.PageOrientation = PdfPageOrientation.Portrait;
         converter.Document.PageSize = PdfPageSize.A4;
