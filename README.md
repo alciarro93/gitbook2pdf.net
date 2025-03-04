@@ -49,3 +49,9 @@ See `CHANGELOG.md` for more information.
 Distributed under the GNU General Public License version 3. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Acknowledgments
+* [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
+* [HiQPdf.NetCore free trial](https://www.nuget.org/packages/HiQPdf.NetCore)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
