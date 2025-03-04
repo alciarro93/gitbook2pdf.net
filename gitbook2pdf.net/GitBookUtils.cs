@@ -1,5 +1,9 @@
 using gitbook2pdf.net.Models;
-using HiQPdf;
+using SimpleHtmlToPdf;
+using SimpleHtmlToPdf.Interfaces;
+using SimpleHtmlToPdf.Settings;
+using SimpleHtmlToPdf.Settings.Enums;
+using SimpleHtmlToPdf.UnmanagedHandler;
 
 namespace gitbook2pdf.net;
 
@@ -12,8 +16,9 @@ public class GitBookUtils
     /// Fetch all GitBook's pages and converts them in pdf
     /// </summary>
     /// <param name="gitbook_url">URL gitbook</param>
+    /// <param name="htmlPDFServ">Service of package SimpleHtmlToPdf</param>
     /// <returns>Esito operazione</returns>
-    public static async Task<bool> GitBookToPdf(string gitbook_url)
+    public static async Task<bool> GitBookToPdf(string gitbook_url, IConverter htmlPDFServ)
     {
         bool myout = false;
         // Fetch all page URLs
@@ -48,11 +53,9 @@ public class GitBookUtils
                     i++;
                 }
 
-                 // Read GitBook CSS file
-                using StreamReader reader = new("assets/css/html5_ua.css");
+                // Read GitBook CSS file
+                using StreamReader reader = new("assets/css/style.css");
                 string gitbook_css = reader.ReadToEnd();
-                using StreamReader reader1 = new("assets/css/gitbook.css");
-                gitbook_css += reader1.ReadToEnd();
                 
                 // Generate full HTML document
                 string html_content = $"""
@@ -70,7 +73,7 @@ public class GitBookUtils
                     """;
 
                 // Convert to PDF
-                ConvertToPdf(html_content, gitbook_url);
+                ConvertToPdf(html_content, gitbook_url, htmlPDFServ);
             }
             else{
                 Console.WriteLine("No pages found to convert.");
@@ -113,8 +116,9 @@ public class GitBookUtils
     /// </summary>
     /// <param name="html_content">HTML to convert to PDF</param>
     /// <param name="gitbook_url">URL of GitBook</param>
+    /// <param name="htmlPDFServ">Service of package SimpleHtmlToPdf</param>
     /// <returns>Esito operazione</returns>
-    private static void ConvertToPdf(string html_content, string gitbook_url)
+    private static void ConvertToPdf(string html_content, string gitbook_url, IConverter htmlPDFServ)
     {
         var uri = new Uri(gitbook_url);
         var ouputpdf = gitbook_url
@@ -130,23 +134,46 @@ public class GitBookUtils
         if(!Directory.Exists(Environment.CurrentDirectory + @"\" + outputFolder))
             Directory.CreateDirectory(outputFolder);
 
-        /* -------------------- */
-        // ONLY FOR DEBUG REASONS
-        //using (StreamWriter outputFile = new StreamWriter(outputFolder + "/test.txt"))
-        //{
-        //    outputFile.WriteLine(html_content);
-        //}
-        /* -------------------- */
 
         // HTML to PDF convertion
-        HtmlToPdf converter = new HtmlToPdf();
-        converter.Document.PageOrientation = PdfPageOrientation.Portrait;
-        converter.Document.PageSize = PdfPageSize.A4;
-        converter.Document.Margins = new PdfMargins(50, 50, 30, 30);
-        var pdfDoc = converter.ConvertHtmlToPdfDocument(html_content, uri.Host);
-        pdfDoc.WriteToFile(outputFolder + ouputpdf);
+        var doc = new HtmlToPdfDocument()
+        {
+            GlobalSettings = {
+                ColorMode = ColorMode.Color,
+                Orientation = Orientation.Portrait,
+                PaperSize = PaperKind.A4,
+                Margins = new MarginSettings(50, 80, 50, 80),
+                DPI = 300,
+            },
+            Objects = {
+                new ObjectSettings()
+                {
+                    HtmlContent = html_content,
+                    WebSettings = { DefaultEncoding = "utf-8" },
+                },
+            }
+        };
 
-        Console.WriteLine("PDF is available here: " + outputFolder + ouputpdf);
+        var mypdfFile = htmlPDFServ.Convert(doc);
+        if(mypdfFile != null){
+            try
+            {
+                File.WriteAllBytes(outputFolder + ouputpdf, mypdfFile);
+                Console.WriteLine("PDF is available here: " + outputFolder + ouputpdf);
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine("Error:" + e.Message);
+                //throw;
+            }
+            
+        }
+        else{
+            Console.WriteLine("Error converting HTML to PDF");
+        }
+
+        
+        
     }
     
 }

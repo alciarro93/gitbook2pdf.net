@@ -4,8 +4,7 @@
 gitbook2pdf.net is a .NET Core console app that performs the complete convertion from GitBook URL to PDF. The URL provided must be the page containing the table of contents in order to let the application to fetch all the chapters's URL and subsequently allthe HTML content.
 
 ## Build the project
-Build using the .NET Core CLI, which is installed with [the .NET Core SDK](https://www.microsoft.com/net/download). Then run
-these commands from the CLI in the directory of the project:
+Build using the .NET Core CLI, which is installed with [the .NET Core SDK](https://www.microsoft.com/net/download). Then run these commands from the CLI in the directory of the project:
 
 ```console
 dotnet build
@@ -15,16 +14,14 @@ dotnet build
 dotnet run
 ```
 
-These will install any needed dependencies, build the project, and run
-the project respectively.
+These will install any needed dependencies, build the project, and run the project respectively.
 
 ## Roadmap
-
 - [x] Add Changelog
 - [x] Add License
-- [ ] Add different pdf component for HTML to PDF feature
+- [x] Add different pdf component for HTML to PDF feature
+- [ ] Add CSS to style the pdf
 - [ ] Multi-language Support
-
 
 See the [open issues](https://github.com/alciarro93/gitbook2pdf.net/issues) for a full list of proposed features (and known issues).
 
@@ -37,24 +34,25 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+3. Commit your Changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Changelog
-See `CHANGELOG.md` for more information.
+See [`CHANGELOG.md`](https://github.com/alciarro93/gitbook2pdf.net/blob/main/CHANGELOG.md) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
-Distributed under the GNU General Public License version 3. See `LICENSE.txt` for more information.
+Distributed under the GNU General Public License version 3. See [`LICENSE.txt`](https://github.com/alciarro93/gitbook2pdf.net/blob/main/LICENSE.txt) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Acknowledgments
+This project works thanks to the following packages:
 * [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
-* [HiQPdf.NetCore free trial](https://www.nuget.org/packages/HiQPdf.NetCore)
+* [SimpleHtmlToPdf](https://www.nuget.org/packages/SimpleHtmlToPdf)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -8,17 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HiQPdf.NetCore" Version="16.0.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.74" />
+    <PackageReference Include="SimpleHtmlToPdf" Version="3.0.0" />
   </ItemGroup>
 
   <Target Name="CopyCustomContent" AfterTargets="AfterBuild">
-    <Copy SourceFiles="assets/css/gitbook.css" DestinationFolder="$(OutDir)/assets/css" />
-    <Copy SourceFiles="assets/css/html5_ua.css" DestinationFolder="$(OutDir)/assets/css" />
-  </Target>
-  <Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
-    <Copy SourceFiles="assets/css/gitbook.css" DestinationFolder="$(PublishDir)/assets/css" />
-    <Copy SourceFiles="assets/css/html5_ua.css" DestinationFolder="$(PublishDir)/assets/css" />
+    <Copy SourceFiles="assets/css/style.css" DestinationFolder="$(OutDir)/assets/css" />
   </Target>
 
 </Project>
