@@ -12,8 +12,11 @@
     <PackageReference Include="SimpleHtmlToPdf" Version="3.0.0" />
   </ItemGroup>
 
-  <Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+  <Target Name="CopyCustomContentBuild" AfterTargets="AfterBuild">
     <Copy SourceFiles="assets/css/style.css" DestinationFolder="$(OutDir)/assets/css" />
+  </Target>
+  <Target Name="CopyCustomContentPublish" AfterTargets="Publish">
+    <Copy SourceFiles="assets/css/style.css" DestinationFolder="$(OutDir)/publish/assets/css" />
   </Target>
 
 </Project>
