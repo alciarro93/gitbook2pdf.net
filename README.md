@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
-# gitbook2pdf.NET
-.NET console app that performs the complete convertion from GitBook URL to PDF.
+# GitBook to PDF
+gitbook2pdf.net is a .NET Core console app that performs the complete convertion from GitBook URL to PDF. The URL provided must be the page containing the table of contents in order to let the application to fetch all the chapters's URL and subsequently allthe HTML content.
 
 ## Build the project
 Build using the .NET Core CLI, which is installed with [the .NET Core SDK](https://www.microsoft.com/net/download). Then run
@@ -9,6 +9,9 @@ these commands from the CLI in the directory of the project:
 
 ```console
 dotnet build
+```
+
+```console
 dotnet run
 ```
 
