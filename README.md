@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
-# GitBook to PDF
-gitbook2pdf.net is a .NET Core console app that performs the complete convertion from GitBook URL to PDF. The URL provided must be the page containing the table of contents in order to let the application to fetch all the chapters's URL and subsequently allthe HTML content.
+# GitBook to PDF .NET Core
+gitbook2pdf.net is a .NET Core console app that performs the complete convertion from GitBook URL to PDF. The URL provided must be the page containing the table of contents, in order to let the application to fetch all the chapters's URL and subsequently each HTML content.
 
 ## Build the project
 Build using the .NET Core CLI, which is installed with [the .NET Core SDK](https://www.microsoft.com/net/download). Then run these commands from the CLI in the directory of the project:
@@ -19,8 +19,8 @@ These will install any needed dependencies, build the project, and run the proje
 ## Roadmap
 - [x] Add Changelog
 - [x] Add License
-- [x] Add different pdf component for HTML to PDF feature
-- [ ] Add CSS to style the pdf
+- [x] Add new pdf component for HTML to PDF feature
+- [ ] Fill assets/css/style.css to improve the look of the generated pdf
 - [ ] Multi-language Support
 
 See the [open issues](https://github.com/alciarro93/gitbook2pdf.net/issues) for a full list of proposed features (and known issues).
@@ -51,7 +51,7 @@ Distributed under the GNU General Public License version 3. See [`LICENSE.txt`](
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Acknowledgments
-This project works thanks to the following packages:
+This project works thanks to the following free and open source packages:
 * [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
 * [SimpleHtmlToPdf](https://www.nuget.org/packages/SimpleHtmlToPdf)
 
