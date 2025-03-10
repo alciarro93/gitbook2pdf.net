@@ -20,7 +20,12 @@ These will install any needed dependencies, build the project, and run the proje
 - [x] Add Changelog
 - [x] Add License
 - [x] Add new pdf component for HTML to PDF feature
+- [ ] Fetch images and handle them inside html for pdf convertion
+- [ ] Hide "Copy" buttons from code snippents
 - [ ] Fill assets/css/style.css to improve the look of the generated pdf
+    - [ ] Style images
+    - [ ] Style code snippets
+    - [ ] Style formulas
 - [ ] Multi-language Support
 
 See the [open issues](https://github.com/alciarro93/gitbook2pdf.net/issues) for a full list of proposed features (and known issues).
