@@ -21,7 +21,7 @@ These will install any needed dependencies, build the project, and run the proje
 - [x] Add License
 - [x] Add new pdf component for HTML to PDF feature
 - [ ] Fetch images and handle them inside html for pdf convertion
-- [ ] Hide "Copy" buttons from code snippents
+- [ ] Hide "Copy" button from code snippet
 - [ ] Fill assets/css/style.css to improve the look of the generated pdf
     - [ ] Style images
     - [ ] Style code snippets
